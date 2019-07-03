@@ -1,0 +1,30 @@
+import pyautogui
+import time
+import os
+pyautogui.hotkey('ctrl','shift','n')
+time.sleep(3)
+for i in range(0,3)
+pyautogui.typewrite('https://trends.google.com/trends/explore?q=lg%20oled%20tv&geo=US')
+pyautogui.typewrite('https://trends.google.com/trends/explore?q=lg%20oled%20tv&geo=GB')
+pyautogui.typewrite('https://trends.google.com/trends/explore?q=lg%20oled%20tv&geo=DE')
+time.sleep(3)
+pyautogui.press('enter')
+time.sleep(3)
+for i in range(0,19):
+    pyautogui.press('down')
+time.sleep(2)
+
+
+
+im1=pyautogui.screenshot('my_screenshot.png',region=(980,580,610,415))
+pyautogui.moveTo(1386,620)
+pyautogui.click()
+time.sleep(1)
+pyautogui.moveTo(1386,660)
+pyautogui.click()
+time.sleep(1)
+im2=pyautogui.screenshot(region=(980,580,610,415))
+
+os.chdir('D:/download')
+im2.save('인기.jpg')
+im1.save('급상승.jpg')
