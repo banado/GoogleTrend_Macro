@@ -1,0 +1,251 @@
+import pyautogui
+import time
+import os
+from datetime import datetime
+Today=datetime.today().strftime("%Y %m %d")
+
+country_list=['US','GB','Global','FR','MX','VN','CA','AU']
+
+for country in country_list:
+    
+    if country='US' or country='GB' or country='CA':
+        url='https://trends.google.com/trends/explore?date=now%207-d&geo={}&q=lg%20oled%20tv,qled%20tv'.format(country)
+    elif country='Global'
+        url='https://trends.google.com/trends/explore?date=now%207-d&q=lg%20oled%20tv,qled%20tv'
+    elif country=
+
+    pyautogui.FAILSAFE = False
+    x=310
+    y=480
+    y2=530
+    width=1280
+    height=490
+
+    pyautogui.hotkey('ctrl','shift','n')
+    pyautogui.PAUSE = 0.4
+    time.sleep(5)
+
+    pyautogui.typewrite(url)
+    time.sleep(3)
+    pyautogui.press('enter')
+    time.sleep(20)
+    
+    
+    #풀캡쳐
+    pyautogui.moveTo(1810,45)
+    pyautogui.click()
+    time.sleep(3)
+    pyautogui.moveTo(1620,110)
+    pyautogui.click()
+    time.sleep(4)
+    pyautogui.moveTo(1690,360)
+    pyautogui.click()
+    pyautogui.press('esc')
+    pyautogui.moveTo(1895,1005)
+    pyautogui.click()
+    time.sleep(3)
+    
+    
+#---------------------------------------------------------------------------------------------------------    
+    
+    for i in range(0,23):
+        pyautogui.press('down')
+    time.sleep(2)
+    pyautogui.moveTo(0,0)
+
+    #급상승 연관쿼리 전체 캡쳐
+    a_rising=[]
+    rising1=pyautogui.screenshot(region=(x,y,width,height))
+    
+    pyautogui.moveTo(1390,950)
+    pyautogui.click()
+    time.sleep(1)
+    rising2=pyautogui.screenshot(region=(x,y,width,height))
+    
+    pyautogui.click()
+    time.sleep(1)
+    rising3=pyautogui.screenshot(region=(x,y,width,height))
+    
+    pyautogui.click()
+    time.sleep(1)
+    rising4=pyautogui.screenshot(region=(x,y,width,height))
+    
+    pyautogui.click()
+    time.sleep(1)
+    rising5=pyautogui.screenshot(region=(x,y,width,height))
+    
+    
+    a_rising=[]
+    a_rising.append(rising1)
+    if rising2==rising1:
+        print('%s LG OLED TV Rising 1 페이지로 끝'%country)
+    elif rising2 != rising1:
+        a_rising.append(rising2)
+        if rising3 == rising2:
+            print('%s LG OLED TV Rising 2 페이지로 끝'%country)
+        elif rising3 != rising2:
+            a_rising.append(rising3)
+            if rising4 == rising3:
+                print('%s LG OLED TV Rising 3 페이지로 끝'%country)
+            elif rising4 != rising3:
+                a_rising.append(rising4)
+                if rising5 == rising4:
+                    print('%s LG OLED TV Rising 4 페이지로 끝'%country)
+                elif rising5 != rising4:
+                    a_rising.append(rising5)
+
+    #인기 연관쿼리 전체 캡쳐
+    
+    pyautogui.moveTo(1380,580)
+    pyautogui.click()
+    time.sleep(1)
+    pyautogui.moveTo(1386,630)
+    pyautogui.click()
+    time.sleep(1)
+    pyautogui.moveTo(1386,490)
+    pyautogui.click()
+    
+    top1=pyautogui.screenshot(region=(x,y,width,height))
+    
+    pyautogui.moveTo(1390,950)
+    pyautogui.click()
+    time.sleep(1)
+    top2=pyautogui.screenshot(region=(x,y,width,height))
+    pyautogui.click()
+    time.sleep(1)
+    top3=pyautogui.screenshot(region=(x,y,width,height))
+    pyautogui.click()
+    time.sleep(1)
+    top4=pyautogui.screenshot(region=(x,y,width,height))
+    pyautogui.click()
+    time.sleep(1)
+    top5=pyautogui.screenshot(region=(x,y,width,height))
+    
+    a_top=[]
+    a_top.append(top1)
+    if top2==top1:
+        print('%s LG OLED TV Top 1 페이지로 끝'%country)
+    elif top2 != top1:
+        a_top.append(top2)
+        if top3 == top2:
+            print('%s LG OLED TV Top 2 페이지로 끝'%country)
+        elif top3 != top2:
+            a_top.append(top3)
+            if top4 == top3:
+                print('%s LG OLED TV Top 3 페이지로 끝'%country)
+            elif top4 != top3:
+                a_top.append(top4)
+                if top5 == top4:
+                    print('%s LG OLED TV Top 4 페이지로 끝'%country)
+                elif top5 != top4:
+                    a_top.append(top5)
+    
+
+
+    os.makedirs('Z:/2019 LGE HE CAV 모니터링 업무/99. 개인폴더/이동섭/Oled TV 연관검색어/LG OLED TV/%s'%Today)
+    for i in range(len(a_rising)):
+        a_rising[i].save("Z:/2019 LGE HE CAV 모니터링 업무/99. 개인폴더/이동섭/Oled TV 연관검색어/LG OLED TV/%s\
+        %s lg oled tv Rising %d.png"%(Today, country, i))
+    for u in range(len(a_top)):
+        a_top[u].save("Z:/2019 LGE HE CAV 모니터링 업무/99. 개인폴더/이동섭/Oled TV 연관검색어/LG OLED TV/%s\
+        %s lg oled tv Top %d.png"%(Today, country, u))
+    
+    
+    #--------------------------------------------------------------------------------------
+
+    for i in range(0,13):
+        pyautogui.press('down')
+
+    pyautogui.moveTo(0,0)
+
+    #rising 전체 캡쳐
+    rising1_1=pyautogui.screenshot(region=(x,y2,width,height))
+    pyautogui.moveTo(1390,980)
+    pyautogui.click()
+    time.sleep(1)
+    rising1_2=pyautogui.screenshot(region=(x,y2,width,height))
+    pyautogui.moveTo(1390,980)
+    pyautogui.click()
+    rising1_3=pyautogui.screenshot(region=(x,y2,width,height))
+    pyautogui.moveTo(1390,980)
+    pyautogui.click()
+    rising1_4=pyautogui.screenshot(region=(x,y2,width,height))
+    pyautogui.moveTo(1390,980)
+    pyautogui.click()
+    rising1_5=pyautogui.screenshot(region=(x,y2,width,height))
+    
+    b_rising=[]
+    b_rising.append(rising1_1)
+    if rising1_2==rising1_1:
+        print('%s QLED TV Rising 1 페이지로 끝'%country)
+    elif rising1_2 != rising1_1:
+        b_rising.append(rising1_2)
+        if rising1_3 == rising1_2:
+            print('%s QLED TV Rising 2 페이지로 끝'%country)
+        elif rising1_3 != rising1_2:
+            b_rising.append(rising1_3)
+            if rising1_4 == rising1_3:
+                print('%s QLED TV Rising 3 페이지로 끝'%country)
+            elif rising1_4 != rising1_3:
+                b_rising.append(rising1_4)
+                if rising1_5 == rising1_4:
+                    print('%s QLED TV Rising 4 페이지로 끝'%country)
+                elif rising1_5 != rising1_4:
+                    b_rising.append(rising1_5)
+    #Top 전체 캡쳐
+
+    pyautogui.moveTo(1380,610)
+    pyautogui.click()
+    time.sleep(1)
+    pyautogui.moveTo(1380,660)
+    pyautogui.click()
+    time.sleep(1)
+    pyautogui.moveTo(1386,560)
+    pyautogui.click()
+    time.sleep(1)
+    
+    top1_1=pyautogui.screenshot(region=(x,y2,width,height))
+    pyautogui.moveTo(1390,980)
+    pyautogui.click()
+    time.sleep(1)
+    top1_2=pyautogui.screenshot(region=(x,y2,width,height))
+    pyautogui.moveTo(1390,980)
+    pyautogui.click()
+    top1_3=pyautogui.screenshot(region=(x,y2,width,height))
+    pyautogui.moveTo(1390,980)
+    pyautogui.click()
+    top1_4=pyautogui.screenshot(region=(x,y2,width,height))
+    pyautogui.moveTo(1390,980)
+    pyautogui.click()
+    top1_5=pyautogui.screenshot(region=(x,y2,width,height))
+    
+    b_top=[]
+    b_top.append(top1_1)
+    if top1_2==top1:
+        print('%s QLED TV Top 1 페이지로 끝'%country)
+    elif top1_2 != top1_1:
+        b_top.append(top1_2)
+        if top1_3 == top1_2:
+            print('%s QLED TV Top 2 페이지로 끝'%country)
+        elif top1_3 != top1_2:
+            b_top.append(top1_3)
+            if top1_4 == top1_3:
+                print('%s QLED TV Top 3 페이지로 끝'%country)
+            elif top1_4 != top1_3:
+                b_top.append(top1_4)
+                if top1_5 == top1_4:
+                    print('%s QLED TV Top 4 페이지로 끝'%country)
+                elif top1_5 != top1_4:
+                    b_top.append(top1_5)
+    
+    for q in range(len(b_rising)):
+        b_rising[q].save("Z:/2019 LGE HE CAV 모니터링 업무/99. 개인폴더/이동섭/Oled TV 연관검색어/QLED TV/%s\
+        %s Qled tv Rising %d.png"%(Today, country, q))
+    for w in range(len(b_top)):
+        b_top[w].save("Z:/2019 LGE HE CAV 모니터링 업무/99. 개인폴더/이동섭/Oled TV 연관검색어/QLED TV/%s\
+        %s Qled tv Top %d.png"%(Today, country, w))
+    
+    
+    
+    
+    pyautogui.hotkey('alt','f4')
